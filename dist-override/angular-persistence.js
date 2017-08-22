@@ -1,7 +1,12 @@
 // gently stolen from: https://github.com/arthurtsang/api-designer/commit/2ad4f3e253b17fa95ea3ea012419d933b098d914
 // just linted and indented
+
 angular.module('ramlEditorApp')
-.factory('APIStore', function($http, $q, config) {
+  .config(function (fileSystemProvider) {
+    fileSystemProvider.setFileSystemFactory(myFileSystem);
+  });
+
+function myFileSystem($http, $q, config) {
   var service = {};
 
   function errorFunction(data, status, headers, config) {
@@ -96,9 +101,4 @@ angular.module('ramlEditorApp')
 
   service.supportsFolders = true;
   return service;
-})
-.run(function (APIStore, config, $window) {
-  // Set APIStore as the filesystem to use
-  config.set('fsFactory', 'APIStore');
-  delete $window.RAML.Settings.proxy;
-});
+}

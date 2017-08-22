@@ -56,6 +56,7 @@ module.exports = ramlServe = function (ramlPath) {
 
 if (module.parent === null) {
   var app = express();
+  app.use(require('morgan')('dev'));
   app.use('/', ramlServe(process.env.RAML_DATAPATH));
 
   var server = app.listen(process.env.PORT || 3000, function () {

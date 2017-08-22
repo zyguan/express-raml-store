@@ -33,12 +33,13 @@
     "router"
   ],
   "dependencies": {
-    "api-designer": "^0.0.6",
+    "api-designer": "^0.4.1",
     "bluebird": "^2.9.32",
     "body-parser": "^1.13.2",
     "debug": "^2.2.0",
     "express": "4.x",
     "mkdirp": "^0.5.1",
+    "morgan": "^1.8.2",
     "rimraf": "^2.4.1"
   },
   "license": "MIT",
